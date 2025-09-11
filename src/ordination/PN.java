@@ -2,7 +2,7 @@ package ordination;
 
 import java.time.LocalDate;
 
-public class PN {
+public class PN extends Ordination{
 
     private double antalEnheder;
 
@@ -21,6 +21,11 @@ public class PN {
     public double doegnDosis() {
         // TODO
         return 0.0;
+    }
+
+    @Override
+    public String getType() {
+        return "";
     }
 
 
