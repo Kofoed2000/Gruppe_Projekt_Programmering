@@ -6,9 +6,9 @@ public class Patient {
     private String cprnr;
     private String navn;
     private double vaegt;
-
-    // TODO: Link til Ordination
     private ArrayList<Ordination> ordinationer = new ArrayList<>();
+
+    // TODO: Link til Ordination✅
 
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
@@ -36,17 +36,31 @@ public class Patient {
         this.vaegt = vaegt;
     }
 
-    //TODO: Metoder (med specifikation) til at vedligeholde link til Ordination
 
+    /**
+     * Returnerer en liste over patientens ordinationer.
+     * Kræver: Metoden kræver ingen forudsætninger.
+     */
     public ArrayList<Ordination> getOrdinationer() {
-        return new ArrayList<>(ordinationer);
+
+        return new ArrayList<Ordination>(ordinationer);
+
     }
 
-    public void addOrdination(Ordination ordination) {
-        if (!ordinationer.contains(ordination)) {
-            ordinationer.add(ordination);
+    /**
+     * Tilføjer en ordination til patientens liste af ordinationer, hvis den ikke allerede findes i listen.
+     * Kræver: Ordinationen må ikke være null.
+     */
+    public void addOrdination(Ordination o) {
+
+        if (!ordinationer.contains(o)) {
+            ordinationer.add(o);
         }
+
     }
+
+
+    //TODO: Metoder (med specifikation) til at vedligeholde link til Ordination✅
 
     @Override
     public String toString(){

@@ -1,11 +1,22 @@
 package ordination;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-public class PN extends Ordination{
+public class PN extends Ordination {
 
     private double antalEnheder;
+    private int antalGangeGivet = 0;
 
+    public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
+        super(startDen, slutDen, laegemiddel);
+    }
+
+    public PN(LocalDate startDen, LocalDate slutDen) {
+        super(startDen, slutDen);
+    }
+
+    //TODO: "datoen huskes" hvorfor?
     /**
      * Registrerer at der er givet en dosis paa dagen givesDen
      * Returnerer true hvis givesDen er inden for ordinationens gyldighedsperiode og datoen huskes
@@ -14,24 +25,34 @@ public class PN extends Ordination{
      * @return
      */
     public boolean givDosis(LocalDate givesDen) {
-        // TODO
-        return false;   
+        //TODO✅
+
+        if (givesDen.isBefore(getStartDen()) || givesDen.isAfter(getSlutDen())) {
+            return false;
+        }
+
+        antalGangeGivet++;
+        return true;
+
     }
 
     public double doegnDosis() {
-        // TODO
-        return 0.0;
+        // TODO✅
+
+        long antalDage = ChronoUnit.DAYS.between(getStartDen(), getSlutDen()) + 1; // +1 fordi begge dage er inklusive
+        return (samletDosis() / antalDage);
+
     }
 
     @Override
     public String getType() {
-        return "";
+        return "PN";
     }
 
 
     public double samletDosis() {
-        // TODO
-        return 0.0;
+        // TODO✅
+        return getAntalGangeGivet() * antalEnheder;
     }
 
     /**
@@ -39,12 +60,18 @@ public class PN extends Ordination{
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        // TODO✅
+        return antalGangeGivet;
     }
+
 
     public double getAntalEnheder() {
         return antalEnheder;
+    }
+
+
+    public void setAntalEnheder(double antalEnheder) {
+        this.antalEnheder = antalEnheder;
     }
 
 }

@@ -8,9 +8,14 @@ public abstract class Ordination {
     private LocalDate slutDen;
     private Laegemiddel laegemiddel;
 
-    // TODO Link til Laegemiddel
-    // TODO constructor (med specifikation)
+    // TODO Link til Laegemiddel✅
+    // TODO constructor (med specifikation)✅
 
+    /**
+     * Opretter en ordination der gælder fra startDen til slutDen (begge dage inklusive).
+     * Kræver: slutDen er efter startDen.
+     * Note: Laegemiddel sættes med setLaegemiddel og ikke i constructor.
+     */
     // Overloaded Constructor
     public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         this.startDen = startDen;
@@ -24,18 +29,33 @@ public abstract class Ordination {
         this.slutDen = slutDen;
     }
 
+    /**
+     * Henter lægemidlet for ordinationen.
+     * Kræver: at lægemiddel er sat (ikke null).
+     */
+    public Laegemiddel getLaegemiddel() {
+        return laegemiddel;
+    }
+
+    /**
+     * Setter lægemidlet for ordinationen.
+     * Kræver: at lægemiddel ikke er null.
+     */
+    public void setLaegemiddel(Laegemiddel laegemiddel) {
+        if (this.laegemiddel != laegemiddel) {
+            this.laegemiddel = laegemiddel;
+        }
+    }
+
+
+
+
     public LocalDate getStartDen() {
         return startDen;
     }	
 
     public LocalDate getSlutDen() {
         return slutDen;
-    }
-
-    public Laegemiddel getLaegemiddel() { return laegemiddel; }
-
-    public void setLaegemiddel(Laegemiddel laegemiddel) {
-        this.laegemiddel = laegemiddel;
     }
 
     /**

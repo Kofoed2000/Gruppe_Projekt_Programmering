@@ -2,11 +2,13 @@ package ordination;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
-public class DagligSkaev extends Ordination{
+public class DagligSkaev extends Ordination {
 
-    ArrayList<Dosis> antalDosis = new ArrayList<>();
+    private ArrayList<Dosis> doser = new ArrayList<>();
+
 
     public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
@@ -16,25 +18,52 @@ public class DagligSkaev extends Ordination{
         super(startDen, slutDen);
     }
 
-    public void opretDosis(LocalTime tid, double antal) {
-        Dosis new_dosis = new Dosis(tid, antal);
-        if (!antalDosis.contains(new_dosis)) {
-            antalDosis.add(new_dosis);
-        }
-    }
-
+    /**
+     * Samlet dosis for alle doser i perioden.
+     * Doserne i listen doser er de daglige doser.
+     * Kræver: at der er tilføjet mindst en dosis til doser.
+     */
     @Override
     public double samletDosis() {
-        return 0;
+        double samletDosis = 0;
+        for (Dosis d : doser) {
+            samletDosis += d.getAntal();
+        }
+        long daysBetween = ChronoUnit.DAYS.between(getStartDen(), getSlutDen()) + 1;
+        return samletDosis * daysBetween;
+
     }
 
+    /**
+     * Døgn dosis er den gennemsnitlige dosis pr. dag i hele perioden.
+     * Kræver: at der er tilføjet mindst en dosis til doser.
+     */
     @Override
     public double doegnDosis() {
-        return 0;
+
+        long daysBetween = ChronoUnit.DAYS.between(getStartDen(), getSlutDen()) + 1;
+        return samletDosis() / daysBetween;
+
     }
 
     @Override
     public String getType() {
-        return "";
+        return "Daglig Skæv";
     }
+
+
+    public ArrayList<Dosis> getDoser() {
+        return new ArrayList<>(doser);
+    }
+
+    public void opretDosis(LocalTime tid, double antal) {
+        // TODO✅
+        Dosis dosis = new Dosis(tid, antal);
+        if (!doser.contains(dosis)) {
+            doser.add(dosis);
+        }
+
+    }
+
+
 }
