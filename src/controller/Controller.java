@@ -164,7 +164,8 @@ public class Controller {
         // TODO✅
         int antal = 0;
         for (Patient p : getAllPatienter()) {
-            if (p.getVaegt() >= vægtStart && p.getVaegt() <= vægtSlut) {
+            double fundnetVægt = p.getVaegt();
+            if (fundnetVægt >= vægtStart && fundnetVægt <= vægtSlut) {
                 for (Ordination o : p.getOrdinationer()) {
                     if (o.getLaegemiddel() == laegemiddel) {
                         antal++;

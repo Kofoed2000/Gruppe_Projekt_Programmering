@@ -7,9 +7,11 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="openjdk-23" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="javafx" level="application" />
     <orderEntry type="library" name="Mickito" level="application" />
+    <orderEntry type="library" exported="" name="JavaFX24" level="application" />
+    <orderEntry type="library" exported="" name="Mockito" level="application" />
   </component>
 </module>
