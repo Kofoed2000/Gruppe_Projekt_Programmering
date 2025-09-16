@@ -9,11 +9,11 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-23" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="javafx" level="application" />
-    <orderEntry type="library" name="Mickito" level="application" />
+    <orderEntry type="library" exported="" name="javafx" level="application" />
+    <orderEntry type="library" exported="" name="Mickito" level="application" />
     <orderEntry type="library" exported="" name="JavaFX24" level="application" />
     <orderEntry type="library" exported="" name="Mockito" level="application" />
-    <orderEntry type="module-library" scope="TEST">
+    <orderEntry type="module-library" exported="" scope="TEST">
       <library name="JUnit5.8.1">
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
@@ -29,5 +29,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="javaFX_21" level="application" />
+    <orderEntry type="library" exported="" name="mockito" level="application" />
   </component>
 </module>

@@ -7,6 +7,7 @@ public class PN extends Ordination {
 
     private double antalEnheder;
     private int antalGangeGivet = 0;
+    private double doser;
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {
         super(startDen, slutDen, laegemiddel);
@@ -34,6 +35,10 @@ public class PN extends Ordination {
         antalGangeGivet++;
         return true;
 
+    }
+
+    public void setAntalDoser(int doser){
+        antalGangeGivet = doser;
     }
 
     public double doegnDosis() {
