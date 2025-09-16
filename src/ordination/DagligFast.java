@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class DagligFast extends Ordination {
-    // TODO✅
+
     private Dosis[] doser = new Dosis[4];
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {

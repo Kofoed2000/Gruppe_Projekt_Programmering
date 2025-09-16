@@ -8,13 +8,10 @@ public abstract class Ordination {
     private LocalDate slutDen;
     private Laegemiddel laegemiddel;
 
-    // TODO Link til Laegemiddel✅
-    // TODO constructor (med specifikation)✅
 
     /**
      * Opretter en ordination der gælder fra startDen til slutDen (begge dage inklusive).
      * Kræver: slutDen er efter startDen.
-     * Note: Laegemiddel sættes med setLaegemiddel og ikke i constructor.
      */
     // Overloaded Constructor
     public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel) {

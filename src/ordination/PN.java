@@ -16,7 +16,7 @@ public class PN extends Ordination {
         super(startDen, slutDen);
     }
 
-    //TODO: "datoen huskes" hvorfor?
+
     /**
      * Registrerer at der er givet en dosis paa dagen givesDen
      * Returnerer true hvis givesDen er inden for ordinationens gyldighedsperiode og datoen huskes
@@ -25,7 +25,7 @@ public class PN extends Ordination {
      * @return
      */
     public boolean givDosis(LocalDate givesDen) {
-        //TODO✅
+
 
         if (givesDen.isBefore(getStartDen()) || givesDen.isAfter(getSlutDen())) {
             return false;
@@ -37,7 +37,7 @@ public class PN extends Ordination {
     }
 
     public double doegnDosis() {
-        // TODO✅
+
 
         long antalDage = ChronoUnit.DAYS.between(getStartDen(), getSlutDen()) + 1; // +1 fordi begge dage er inklusive
         return (samletDosis() / antalDage);
@@ -51,7 +51,7 @@ public class PN extends Ordination {
 
 
     public double samletDosis() {
-        // TODO✅
+
         return getAntalGangeGivet() * antalEnheder;
     }
 
@@ -60,7 +60,7 @@ public class PN extends Ordination {
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO✅
+
         return antalGangeGivet;
     }
 

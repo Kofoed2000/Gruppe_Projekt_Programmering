@@ -15,7 +15,7 @@ public class Controller {
         storage = new Storage();
     }
 
-    // Singleton mønster: sørger for at der kun er en controller i systemet.
+
     public static Controller getController() {
         if (controller == null) {
             controller = new Controller();
@@ -37,7 +37,6 @@ public class Controller {
      */
     public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
                                 Patient patient, Laegemiddel laegemiddel, double antal) {
-        // TODO✅
 
         if (!checkStartFoerSlut(startDen, slutDen)) {
             throw new IllegalArgumentException("Start dato skal være før slut dato👺");
@@ -60,7 +59,7 @@ public class Controller {
                                                 LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
                                                 double morgenAntal, double middagAntal, double aftenAntal,
                                                 double natAntal) {
-        //TODO✅
+
 
         if (!checkStartFoerSlut(startDen, slutDen)) {
             throw new IllegalArgumentException("Start dato skal være før slut dato👺");
@@ -97,7 +96,7 @@ public class Controller {
     public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
                                                   LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
                                                   LocalTime[] klokkeSlet, double[] antalEnheder) {
-        // TODO✅
+
 
         if (!checkStartFoerSlut(startDen, slutDen)) {
             throw new IllegalArgumentException("Start dato skal være før slutdato👺");
@@ -124,7 +123,7 @@ public class Controller {
      * Pre: ordination og dato er ikke null
      */
     public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-        // TODO✅
+
         if (dato.isBefore(ordination.getStartDen()) || dato.isAfter(ordination.getSlutDen())) {
             throw new IllegalArgumentException("Datoen er ikke indenfor ordinationens gyldighedsperiode👺");
         }
@@ -139,7 +138,7 @@ public class Controller {
      * Pre: patient og lægemiddel er ikke null
      */
     public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-        //TODO✅
+
         double vægt = patient.getVaegt();
         double dosis;
 
@@ -161,7 +160,7 @@ public class Controller {
      */
     public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
                                                    double vægtSlut, Laegemiddel laegemiddel) {
-        // TODO✅
+
         int antal = 0;
         for (Patient p : getAllPatienter()) {
             double fundnetVægt = p.getVaegt();
